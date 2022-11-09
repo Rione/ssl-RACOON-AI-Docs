@@ -1,3 +1,4 @@
 Sphinx
 Pillow
 piccolo_theme
+myst_parser
