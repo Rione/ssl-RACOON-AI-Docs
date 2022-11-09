@@ -1,0 +1,3 @@
+Sphinx
+Pillow
+piccolo-theme
