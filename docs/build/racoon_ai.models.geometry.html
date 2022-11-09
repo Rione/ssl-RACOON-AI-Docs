@@ -1,0 +1,904 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>racoon_ai.models.geometry package &#8212; RACOON-AI 0.6.10 ドキュメント</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=0.7.0-1" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/petite-vue.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="index.html" title="Go to homepage">RACOON-AI 0.6.10 ドキュメント</a></h1>
+            <a id="source_link" href="https://github.com/Ri-one/ssl-RACOON-AI/">
+    
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+            <path fill="white" d="M 244.8,8 C 106.1,8 0,113.3 0,252 c 0,110.9 69.8,205.8 169.5,239.2 12.8,2.3 17.3,-5.6 17.3,-12.1 0,-6.2 -0.3,-40.4 -0.3,-61.4 0,0 -70,15 -84.7,-29.8 0,0 -11.4,-29.1 -27.8,-36.6 0,0 -22.9,-15.7 1.6,-15.4 0,0 24.9,2 38.6,25.8 21.9,38.6 58.6,27.5 72.9,20.9 2.3,-16 8.8,-27.1 16,-33.7 -55.9,-6.2 -112.3,-14.3 -112.3,-110.5 0,-27.5 7.6,-41.3 23.6,-58.9 -2.6,-6.5 -11.1,-33.3 2.6,-67.9 20.9,-6.5 69,27 69,27 20,-5.6 41.5,-8.5 62.8,-8.5 21.3,0 42.8,2.9 62.8,8.5 0,0 48.1,-33.6 69,-27 13.7,34.7 5.2,61.4 2.6,67.9 16,17.7 25.8,31.5 25.8,58.9 0,96.5 -58.9,104.2 -114.8,110.5 9.2,7.9 17,22.9 17,46.4 0,33.7 -0.3,75.4 -0.3,83.6 0,6.5 4.6,14.4 17.3,12.1 C 428.2,457.8 496,362.9 496,252 496,113.3 383.5,8 244.8,8 Z"/>
+        </svg>
+    
+</a>
+        
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="racoon-ai-models-geometry-package">
+<h1>racoon_ai.models.geometry package<a class="headerlink" href="#racoon-ai-models-geometry-package" title="この見出しへのパーマリンク">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="この見出しへのパーマリンク">¶</a></h2>
+</section>
+<section id="module-racoon_ai.models.geometry.geometry">
+<span id="racoon-ai-models-geometry-geometry-module"></span><h2>racoon_ai.models.geometry.geometry module<a class="headerlink" href="#module-racoon_ai.models.geometry.geometry" title="この見出しへのパーマリンク">¶</a></h2>
+<p>geometry.py</p>
+<dl class="simple">
+<dt>This module contains</dt><dd><ul class="simple">
+<li><p>Geometry</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.models.geometry.geometry.</span></span><span class="sig-name descname"><span class="pre">Geometry</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.field_length">
+<span class="sig-name descname"><span class="pre">field_length</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.field_length" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>length of field</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.field_width">
+<span class="sig-name descname"><span class="pre">field_width</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.field_width" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>width of field</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.goal_width">
+<span class="sig-name descname"><span class="pre">goal_width</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.goal_width" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>width of goal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.goal_width_half">
+<span class="sig-name descname"><span class="pre">goal_width_half</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.goal_width_half" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>width of goal / 2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.goal_depth">
+<span class="sig-name descname"><span class="pre">goal_depth</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.goal_depth" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>depth of goal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.boundary_width">
+<span class="sig-name descname"><span class="pre">boundary_width</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.boundary_width" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>width of boundary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.penalty_area_depth">
+<span class="sig-name descname"><span class="pre">penalty_area_depth</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.penalty_area_depth" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>depth of penalty</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.penalty_area_width">
+<span class="sig-name descname"><span class="pre">penalty_area_width</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.penalty_area_width" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>width of penalty</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.penalty_area_width_half">
+<span class="sig-name descname"><span class="pre">penalty_area_width_half</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.penalty_area_width_half" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>width of penalty / 2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.center_circle_radius">
+<span class="sig-name descname"><span class="pre">center_circle_radius</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.center_circle_radius" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>radius of center circle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.line_thickness">
+<span class="sig-name descname"><span class="pre">line_thickness</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.line_thickness" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>thickness of line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.goal_center_to_penalty_mark">
+<span class="sig-name descname"><span class="pre">goal_center_to_penalty_mark</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.goal_center_to_penalty_mark" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>distance between goal center to penalty</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.goal_height">
+<span class="sig-name descname"><span class="pre">goal_height</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.goal_height" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>height of goal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.ball_radius">
+<span class="sig-name descname"><span class="pre">ball_radius</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.ball_radius" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>radius of ball</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.max_robot_radius">
+<span class="sig-name descname"><span class="pre">max_robot_radius</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.max_robot_radius" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>max robot radius</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.goal" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>goal (x, y)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="racoon_ai.models.coordinate.html#racoon_ai.models.coordinate.Point" title="racoon_ai.models.coordinate.Point">Point</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.goal_x">
+<span class="sig-name descname"><span class="pre">goal_x</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.goal_x" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>goal x</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.goal_y">
+<span class="sig-name descname"><span class="pre">goal_y</span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.goal_y" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>goal y</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ball_radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#id0" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">boundary_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id1" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">center_circle_radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id2" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id3">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">field_length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id3" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id4">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">field_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id4" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id5">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="racoon_ai.models.coordinate.html#racoon_ai.models.coordinate.Point" title="racoon_ai.models.coordinate.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#id5" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id6">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">goal_center_to_penalty_mark</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id6" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id7">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">goal_depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id7" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id8">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">goal_height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id8" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id9">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">goal_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id9" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id10">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">goal_width_half</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#id10" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>goal_width</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id11">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">line_thickness</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id11" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id12">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_robot_radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#id12" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id13">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">penalty_area_depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id13" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id14">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">penalty_area_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id14" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id15">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">penalty_area_width_half</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#id15" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>penalty_area_width</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.their_goal">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">their_goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="racoon_ai.models.coordinate.html#racoon_ai.models.coordinate.Point" title="racoon_ai.models.coordinate.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.their_goal" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.geometry.Geometry.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Geometry_Info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attack_direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="racoon_ai.gui.modules.html#racoon_ai.gui.modules.background.Back.None" title="racoon_ai.gui.modules.background.Back.None"><span class="pre">None</span></a></span></span><a class="headerlink" href="#racoon_ai.models.geometry.geometry.Geometry.update" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Update robot</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>geometry</strong> (<em>Geometry_Info</em>) -- Geometry_Info</p></li>
+<li><p><strong>attack_direction</strong> (<em>int</em>) -- attack direction</p></li>
+<li><p><strong>override</strong> (<em>bool</em><em>, </em><em>optional</em>) -- Enable override. Defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-racoon_ai.models.geometry">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-racoon_ai.models.geometry" title="この見出しへのパーマリンク">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.models.geometry.</span></span><span class="sig-name descname"><span class="pre">Geometry</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.field_length">
+<span class="sig-name descname"><span class="pre">field_length</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.field_length" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>length of field</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.field_width">
+<span class="sig-name descname"><span class="pre">field_width</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.field_width" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>width of field</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.goal_width">
+<span class="sig-name descname"><span class="pre">goal_width</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.goal_width" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>width of goal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.goal_width_half">
+<span class="sig-name descname"><span class="pre">goal_width_half</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.goal_width_half" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>width of goal / 2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.goal_depth">
+<span class="sig-name descname"><span class="pre">goal_depth</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.goal_depth" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>depth of goal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.boundary_width">
+<span class="sig-name descname"><span class="pre">boundary_width</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.boundary_width" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>width of boundary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.penalty_area_depth">
+<span class="sig-name descname"><span class="pre">penalty_area_depth</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.penalty_area_depth" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>depth of penalty</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.penalty_area_width">
+<span class="sig-name descname"><span class="pre">penalty_area_width</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.penalty_area_width" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>width of penalty</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.penalty_area_width_half">
+<span class="sig-name descname"><span class="pre">penalty_area_width_half</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.penalty_area_width_half" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>width of penalty / 2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.center_circle_radius">
+<span class="sig-name descname"><span class="pre">center_circle_radius</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.center_circle_radius" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>radius of center circle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.line_thickness">
+<span class="sig-name descname"><span class="pre">line_thickness</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.line_thickness" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>thickness of line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.goal_center_to_penalty_mark">
+<span class="sig-name descname"><span class="pre">goal_center_to_penalty_mark</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.goal_center_to_penalty_mark" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>distance between goal center to penalty</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.goal_height">
+<span class="sig-name descname"><span class="pre">goal_height</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.goal_height" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>height of goal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.ball_radius">
+<span class="sig-name descname"><span class="pre">ball_radius</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.ball_radius" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>radius of ball</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.max_robot_radius">
+<span class="sig-name descname"><span class="pre">max_robot_radius</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.max_robot_radius" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>max robot radius</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.goal">
+<span class="sig-name descname"><span class="pre">goal</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.goal" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>goal (x, y)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="racoon_ai.models.coordinate.html#racoon_ai.models.coordinate.Point" title="racoon_ai.models.coordinate.Point">Point</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.goal_x">
+<span class="sig-name descname"><span class="pre">goal_x</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.goal_x" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>goal x</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.goal_y">
+<span class="sig-name descname"><span class="pre">goal_y</span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.goal_y" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>goal y</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id16">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ball_radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#id16" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id17">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">boundary_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id17" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id18">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">center_circle_radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id18" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id19">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">field_length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id19" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id20">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">field_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id20" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id21">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="racoon_ai.models.coordinate.html#racoon_ai.models.coordinate.Point" title="racoon_ai.models.coordinate.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#id21" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id22">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">goal_center_to_penalty_mark</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id22" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id23">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">goal_depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id23" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id24">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">goal_height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id24" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id25">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">goal_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id25" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id26">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">goal_width_half</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#id26" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>goal_width</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id27">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">line_thickness</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id27" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id28">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_robot_radius</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#id28" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id29">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">penalty_area_depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id29" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id30">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">penalty_area_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#id30" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id31">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">penalty_area_width_half</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#id31" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>penalty_area_width</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.their_goal">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">their_goal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="racoon_ai.models.coordinate.html#racoon_ai.models.coordinate.Point" title="racoon_ai.models.coordinate.Point"><span class="pre">Point</span></a></em><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.their_goal" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.models.geometry.Geometry.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Geometry_Info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attack_direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="racoon_ai.gui.modules.html#racoon_ai.gui.modules.background.Back.None" title="racoon_ai.gui.modules.background.Back.None"><span class="pre">None</span></a></span></span><a class="headerlink" href="#racoon_ai.models.geometry.Geometry.update" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Update robot</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>geometry</strong> (<em>Geometry_Info</em>) -- Geometry_Info</p></li>
+<li><p><strong>attack_direction</strong> (<em>int</em>) -- attack direction</p></li>
+<li><p><strong>override</strong> (<em>bool</em><em>, </em><em>optional</em>) -- Enable override. Defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">racoon_ai.models.geometry package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-racoon_ai.models.geometry.geometry">racoon_ai.models.geometry.geometry module</a><ul>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.field_length"><code class="docutils literal notranslate"><span class="pre">Geometry.field_length</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.field_width"><code class="docutils literal notranslate"><span class="pre">Geometry.field_width</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.goal_width"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_width</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.goal_width_half"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_width_half</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.goal_depth"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_depth</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.boundary_width"><code class="docutils literal notranslate"><span class="pre">Geometry.boundary_width</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.penalty_area_depth"><code class="docutils literal notranslate"><span class="pre">Geometry.penalty_area_depth</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.penalty_area_width"><code class="docutils literal notranslate"><span class="pre">Geometry.penalty_area_width</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.penalty_area_width_half"><code class="docutils literal notranslate"><span class="pre">Geometry.penalty_area_width_half</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.center_circle_radius"><code class="docutils literal notranslate"><span class="pre">Geometry.center_circle_radius</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.line_thickness"><code class="docutils literal notranslate"><span class="pre">Geometry.line_thickness</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.goal_center_to_penalty_mark"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_center_to_penalty_mark</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.goal_height"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_height</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.ball_radius"><code class="docutils literal notranslate"><span class="pre">Geometry.ball_radius</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.max_robot_radius"><code class="docutils literal notranslate"><span class="pre">Geometry.max_robot_radius</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.goal"><code class="docutils literal notranslate"><span class="pre">Geometry.goal</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.goal_x"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_x</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.goal_y"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_y</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Geometry.ball_radius</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Geometry.boundary_width</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Geometry.center_circle_radius</span></code></a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Geometry.field_length</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">Geometry.field_width</span></code></a></li>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">Geometry.goal</span></code></a></li>
+<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_center_to_penalty_mark</span></code></a></li>
+<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_depth</span></code></a></li>
+<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_height</span></code></a></li>
+<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_width</span></code></a></li>
+<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_width_half</span></code></a></li>
+<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">Geometry.line_thickness</span></code></a></li>
+<li><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">Geometry.max_robot_radius</span></code></a></li>
+<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">Geometry.penalty_area_depth</span></code></a></li>
+<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">Geometry.penalty_area_width</span></code></a></li>
+<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">Geometry.penalty_area_width_half</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.their_goal"><code class="docutils literal notranslate"><span class="pre">Geometry.their_goal</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.geometry.Geometry.update"><code class="docutils literal notranslate"><span class="pre">Geometry.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-racoon_ai.models.geometry">Module contents</a><ul>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry"><code class="docutils literal notranslate"><span class="pre">Geometry</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.field_length"><code class="docutils literal notranslate"><span class="pre">Geometry.field_length</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.field_width"><code class="docutils literal notranslate"><span class="pre">Geometry.field_width</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.goal_width"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_width</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.goal_width_half"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_width_half</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.goal_depth"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_depth</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.boundary_width"><code class="docutils literal notranslate"><span class="pre">Geometry.boundary_width</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.penalty_area_depth"><code class="docutils literal notranslate"><span class="pre">Geometry.penalty_area_depth</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.penalty_area_width"><code class="docutils literal notranslate"><span class="pre">Geometry.penalty_area_width</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.penalty_area_width_half"><code class="docutils literal notranslate"><span class="pre">Geometry.penalty_area_width_half</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.center_circle_radius"><code class="docutils literal notranslate"><span class="pre">Geometry.center_circle_radius</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.line_thickness"><code class="docutils literal notranslate"><span class="pre">Geometry.line_thickness</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.goal_center_to_penalty_mark"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_center_to_penalty_mark</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.goal_height"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_height</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.ball_radius"><code class="docutils literal notranslate"><span class="pre">Geometry.ball_radius</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.max_robot_radius"><code class="docutils literal notranslate"><span class="pre">Geometry.max_robot_radius</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.goal"><code class="docutils literal notranslate"><span class="pre">Geometry.goal</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.goal_x"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_x</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.goal_y"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_y</span></code></a></li>
+<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">Geometry.ball_radius</span></code></a></li>
+<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">Geometry.boundary_width</span></code></a></li>
+<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">Geometry.center_circle_radius</span></code></a></li>
+<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">Geometry.field_length</span></code></a></li>
+<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">Geometry.field_width</span></code></a></li>
+<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">Geometry.goal</span></code></a></li>
+<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_center_to_penalty_mark</span></code></a></li>
+<li><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_depth</span></code></a></li>
+<li><a class="reference internal" href="#id24"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_height</span></code></a></li>
+<li><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_width</span></code></a></li>
+<li><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">Geometry.goal_width_half</span></code></a></li>
+<li><a class="reference internal" href="#id27"><code class="docutils literal notranslate"><span class="pre">Geometry.line_thickness</span></code></a></li>
+<li><a class="reference internal" href="#id28"><code class="docutils literal notranslate"><span class="pre">Geometry.max_robot_radius</span></code></a></li>
+<li><a class="reference internal" href="#id29"><code class="docutils literal notranslate"><span class="pre">Geometry.penalty_area_depth</span></code></a></li>
+<li><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">Geometry.penalty_area_width</span></code></a></li>
+<li><a class="reference internal" href="#id31"><code class="docutils literal notranslate"><span class="pre">Geometry.penalty_area_width_half</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.their_goal"><code class="docutils literal notranslate"><span class="pre">Geometry.their_goal</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.models.geometry.Geometry.update"><code class="docutils literal notranslate"><span class="pre">Geometry.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+            </div>
+
+            <div class="right">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Ri-one.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

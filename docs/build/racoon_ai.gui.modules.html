@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>racoon_ai.gui.modules package &#8212; RACOON-AI 0.6.10 ドキュメント</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=0.7.0-1" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/petite-vue.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="index.html" title="Go to homepage">RACOON-AI 0.6.10 ドキュメント</a></h1>
+            <a id="source_link" href="https://github.com/Ri-one/ssl-RACOON-AI/">
+    
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+            <path fill="white" d="M 244.8,8 C 106.1,8 0,113.3 0,252 c 0,110.9 69.8,205.8 169.5,239.2 12.8,2.3 17.3,-5.6 17.3,-12.1 0,-6.2 -0.3,-40.4 -0.3,-61.4 0,0 -70,15 -84.7,-29.8 0,0 -11.4,-29.1 -27.8,-36.6 0,0 -22.9,-15.7 1.6,-15.4 0,0 24.9,2 38.6,25.8 21.9,38.6 58.6,27.5 72.9,20.9 2.3,-16 8.8,-27.1 16,-33.7 -55.9,-6.2 -112.3,-14.3 -112.3,-110.5 0,-27.5 7.6,-41.3 23.6,-58.9 -2.6,-6.5 -11.1,-33.3 2.6,-67.9 20.9,-6.5 69,27 69,27 20,-5.6 41.5,-8.5 62.8,-8.5 21.3,0 42.8,2.9 62.8,8.5 0,0 48.1,-33.6 69,-27 13.7,34.7 5.2,61.4 2.6,67.9 16,17.7 25.8,31.5 25.8,58.9 0,96.5 -58.9,104.2 -114.8,110.5 9.2,7.9 17,22.9 17,46.4 0,33.7 -0.3,75.4 -0.3,83.6 0,6.5 4.6,14.4 17.3,12.1 C 428.2,457.8 496,362.9 496,252 496,113.3 383.5,8 244.8,8 Z"/>
+        </svg>
+    
+</a>
+        
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">クイック検索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="検索" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="racoon-ai-gui-modules-package">
+<h1>racoon_ai.gui.modules package<a class="headerlink" href="#racoon-ai-gui-modules-package" title="この見出しへのパーマリンク">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="この見出しへのパーマリンク">¶</a></h2>
+</section>
+<section id="module-racoon_ai.gui.modules.animated_toggle">
+<span id="racoon-ai-gui-modules-animated-toggle-module"></span><h2>racoon_ai.gui.modules.animated_toggle module<a class="headerlink" href="#module-racoon_ai.gui.modules.animated_toggle" title="この見出しへのパーマリンク">¶</a></h2>
+<p>animated_toggle.py</p>
+<dl class="simple">
+<dt>This module contains:</dt><dd><ul class="simple">
+<li><p>AnimatedToggle</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.animated_toggle.AnimatedToggle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.animated_toggle.</span></span><span class="sig-name descname"><span class="pre">AnimatedToggle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">QWidget</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#808080'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checked_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#00B0FF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handle_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#FFFFFF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulse_unchecked_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#44999999'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulse_checked_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#4400B0EE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">QCheckBox</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.animated_toggle.AnimatedToggle.handle_position">
+<span class="sig-name descname"><span class="pre">handle_position</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PySide6.QtCore.Property</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.handle_position" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.animated_toggle.AnimatedToggle.hitButton">
+<span class="sig-name descname"><span class="pre">hitButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QPoint</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.hitButton" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.animated_toggle.AnimatedToggle.paintEvent">
+<span class="sig-name descname"><span class="pre">paintEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QPaintEvent</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#racoon_ai.gui.modules.background.Back.None" title="racoon_ai.gui.modules.background.Back.None"><span class="pre">None</span></a></span></span><a class="headerlink" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.paintEvent" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.animated_toggle.AnimatedToggle.pulse_radius">
+<span class="sig-name descname"><span class="pre">pulse_radius</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PySide6.QtCore.Property</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.pulse_radius" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.animated_toggle.AnimatedToggle.setup_animation">
+<span class="sig-name descname"><span class="pre">setup_animation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#racoon_ai.gui.modules.background.Back.None" title="racoon_ai.gui.modules.background.Back.None"><span class="pre">None</span></a></span></span><a class="headerlink" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.setup_animation" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.animated_toggle.AnimatedToggle.sizeHint">
+<span class="sig-name descname"><span class="pre">sizeHint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QSize</span></span></span><a class="headerlink" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.sizeHint" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.animated_toggle.AnimatedToggle.staticMetaObject">
+<span class="sig-name descname"><span class="pre">staticMetaObject</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">PySide6.QtCore.QMetaObject(&quot;AnimatedToggle&quot;</span> <span class="pre">inherits</span> <span class="pre">&quot;QCheckBox&quot;:</span> <span class="pre">Properties:</span>&#160;&#160; <span class="pre">#72</span> <span class="pre">&quot;handle_position&quot;,</span> <span class="pre">double</span> <span class="pre">[writeable]</span> <span class="pre">[designable]</span>&#160;&#160; <span class="pre">#73</span> <span class="pre">&quot;pulse_radius&quot;,</span> <span class="pre">double</span> <span class="pre">[writeable]</span> <span class="pre">[designable]</span> <span class="pre">Methods:</span>&#160;&#160; <span class="pre">#45</span> <span class="pre">type=Slot,</span> <span class="pre">signature=setup_animation(int),</span> <span class="pre">parameters=int</span> <span class="pre">)</span></em><a class="headerlink" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.staticMetaObject" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-racoon_ai.gui.modules.background">
+<span id="racoon-ai-gui-modules-background-module"></span><h2>racoon_ai.gui.modules.background module<a class="headerlink" href="#module-racoon_ai.gui.modules.background" title="この見出しへのパーマリンク">¶</a></h2>
+<p>background.py</p>
+<p>This module is for the Back class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.background.Back">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.background.</span></span><span class="sig-name descname"><span class="pre">Back</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#racoon_ai.gui.modules.main.Main" title="racoon_ai.gui.modules.main.Main"><span class="pre">Main</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.background.Back" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Robot
+:param None:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.background.Back.None">
+<span class="sig-name descname"><span class="pre">None</span></span><a class="headerlink" href="#racoon_ai.gui.modules.background.Back.None" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-racoon_ai.gui.modules.chart">
+<span id="racoon-ai-gui-modules-chart-module"></span><h2>racoon_ai.gui.modules.chart module<a class="headerlink" href="#module-racoon_ai.gui.modules.chart" title="この見出しへのパーマリンク">¶</a></h2>
+<p>chart.py</p>
+<p>This module is for the Chart class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.chart.Chart">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.chart.</span></span><span class="sig-name descname"><span class="pre">Chart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#racoon_ai.gui.modules.main.Main" title="racoon_ai.gui.modules.main.Main"><span class="pre">Main</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">observer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="racoon_ai.observer.html#racoon_ai.observer.observer.Observer" title="racoon_ai.observer.observer.Observer"><span class="pre">Observer</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.chart.Chart" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> -- </p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.chart.Chart.None">
+<span class="sig-name descname"><span class="pre">None</span></span><a class="headerlink" href="#racoon_ai.gui.modules.chart.Chart.None" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.chart.Chart.update_plot_data">
+<span class="sig-name descname"><span class="pre">update_plot_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#racoon_ai.gui.modules.chart.Chart.None" title="racoon_ai.gui.modules.chart.Chart.None"><span class="pre">None</span></a></span></span><a class="headerlink" href="#racoon_ai.gui.modules.chart.Chart.update_plot_data" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-racoon_ai.gui.modules.game_control">
+<span id="racoon-ai-gui-modules-game-control-module"></span><h2>racoon_ai.gui.modules.game_control module<a class="headerlink" href="#module-racoon_ai.gui.modules.game_control" title="この見出しへのパーマリンク">¶</a></h2>
+<p>game_control.py</p>
+<p>This module is for the Game class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.game_control.Game">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.game_control.</span></span><span class="sig-name descname"><span class="pre">Game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#racoon_ai.gui.modules.main.Main" title="racoon_ai.gui.modules.main.Main"><span class="pre">Main</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.game_control.Game" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>main</strong> -- Main</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.game_control.Game.None">
+<span class="sig-name descname"><span class="pre">None</span></span><a class="headerlink" href="#racoon_ai.gui.modules.game_control.Game.None" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.game_control.Game.update_command">
+<span class="sig-name descname"><span class="pre">update_command</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">REF_COMMAND.V</span></span></span><a class="headerlink" href="#racoon_ai.gui.modules.game_control.Game.update_command" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>update combo</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.game_control.Game.update_placement">
+<span class="sig-name descname"><span class="pre">update_placement</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="racoon_ai.models.coordinate.html#racoon_ai.models.coordinate.Point" title="racoon_ai.models.coordinate.Point"><span class="pre">Point</span></a></span></span><a class="headerlink" href="#racoon_ai.gui.modules.game_control.Game.update_placement" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>update placement</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-racoon_ai.gui.modules.main">
+<span id="racoon-ai-gui-modules-main-module"></span><h2>racoon_ai.gui.modules.main module<a class="headerlink" href="#module-racoon_ai.gui.modules.main" title="この見出しへのパーマリンク">¶</a></h2>
+<p>main.py
+This module is for the Main class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.main.Main">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.main.</span></span><span class="sig-name descname"><span class="pre">Main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="racoon_ai.observer.html#racoon_ai.observer.observer.Observer" title="racoon_ai.observer.observer.Observer"><span class="pre">Observer</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">role</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="racoon_ai.strategy.role.html#racoon_ai.strategy.role.role.Role" title="racoon_ai.strategy.role.role.Role"><span class="pre">Role</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.main.Main" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">QMainWindow</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.main.Main.active">
+<span class="sig-name descname"><span class="pre">active</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#racoon_ai.gui.modules.background.Back.None" title="racoon_ai.gui.modules.background.Back.None"><span class="pre">None</span></a></span></span><a class="headerlink" href="#racoon_ai.gui.modules.main.Main.active" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.main.Main.paintEvent">
+<span class="sig-name descname"><span class="pre">paintEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QPaintEvent</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#racoon_ai.gui.modules.background.Back.None" title="racoon_ai.gui.modules.background.Back.None"><span class="pre">None</span></a></span></span><a class="headerlink" href="#racoon_ai.gui.modules.main.Main.paintEvent" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.main.Main.staticMetaObject">
+<span class="sig-name descname"><span class="pre">staticMetaObject</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">PySide6.QtCore.QMetaObject(&quot;Main&quot;</span> <span class="pre">inherits</span> <span class="pre">&quot;QMainWindow&quot;:</span> <span class="pre">)</span></em><a class="headerlink" href="#racoon_ai.gui.modules.main.Main.staticMetaObject" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-racoon_ai.gui.modules.robot">
+<span id="racoon-ai-gui-modules-robot-module"></span><h2>racoon_ai.gui.modules.robot module<a class="headerlink" href="#module-racoon_ai.gui.modules.robot" title="この見出しへのパーマリンク">¶</a></h2>
+<p>field.py</p>
+<p>This module is for the Feild class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.robot.Robot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.robot.</span></span><span class="sig-name descname"><span class="pre">Robot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#racoon_ai.gui.modules.main.Main" title="racoon_ai.gui.modules.main.Main"><span class="pre">Main</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.robot.Robot" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> -- </p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.robot.Robot.None">
+<span class="sig-name descname"><span class="pre">None</span></span><a class="headerlink" href="#racoon_ai.gui.modules.robot.Robot.None" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-racoon_ai.gui.modules.vision">
+<span id="racoon-ai-gui-modules-vision-module"></span><h2>racoon_ai.gui.modules.vision module<a class="headerlink" href="#module-racoon_ai.gui.modules.vision" title="この見出しへのパーマリンク">¶</a></h2>
+<p>vision.py</p>
+<p>This module is for the Vision class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.vision.Vision">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.vision.</span></span><span class="sig-name descname"><span class="pre">Vision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#racoon_ai.gui.modules.main.Main" title="racoon_ai.gui.modules.main.Main"><span class="pre">Main</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.vision.Vision" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> -- </p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.vision.Vision.None">
+<span class="sig-name descname"><span class="pre">None</span></span><a class="headerlink" href="#racoon_ai.gui.modules.vision.Vision.None" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-racoon_ai.gui.modules">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-racoon_ai.gui.modules" title="この見出しへのパーマリンク">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Back">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.</span></span><span class="sig-name descname"><span class="pre">Back</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#racoon_ai.gui.modules.main.Main" title="racoon_ai.gui.modules.main.Main"><span class="pre">Main</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.Back" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Robot
+:param None:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Back.None">
+<span class="sig-name descname"><span class="pre">None</span></span><a class="headerlink" href="#racoon_ai.gui.modules.Back.None" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Chart">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.</span></span><span class="sig-name descname"><span class="pre">Chart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#racoon_ai.gui.modules.main.Main" title="racoon_ai.gui.modules.main.Main"><span class="pre">Main</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">observer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="racoon_ai.observer.html#racoon_ai.observer.observer.Observer" title="racoon_ai.observer.observer.Observer"><span class="pre">Observer</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.Chart" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> -- </p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Chart.None">
+<span class="sig-name descname"><span class="pre">None</span></span><a class="headerlink" href="#racoon_ai.gui.modules.Chart.None" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Chart.update_plot_data">
+<span class="sig-name descname"><span class="pre">update_plot_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#racoon_ai.gui.modules.Chart.None" title="racoon_ai.gui.modules.Chart.None"><span class="pre">None</span></a></span></span><a class="headerlink" href="#racoon_ai.gui.modules.Chart.update_plot_data" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Game">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.</span></span><span class="sig-name descname"><span class="pre">Game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#racoon_ai.gui.modules.main.Main" title="racoon_ai.gui.modules.main.Main"><span class="pre">Main</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.Game" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>main</strong> -- Main</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Game.None">
+<span class="sig-name descname"><span class="pre">None</span></span><a class="headerlink" href="#racoon_ai.gui.modules.Game.None" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Game.update_command">
+<span class="sig-name descname"><span class="pre">update_command</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">REF_COMMAND.V</span></span></span><a class="headerlink" href="#racoon_ai.gui.modules.Game.update_command" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>update combo</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Game.update_placement">
+<span class="sig-name descname"><span class="pre">update_placement</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="racoon_ai.models.coordinate.html#racoon_ai.models.coordinate.Point" title="racoon_ai.models.coordinate.Point"><span class="pre">Point</span></a></span></span><a class="headerlink" href="#racoon_ai.gui.modules.Game.update_placement" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>update placement</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Main">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.</span></span><span class="sig-name descname"><span class="pre">Main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="racoon_ai.observer.html#racoon_ai.observer.observer.Observer" title="racoon_ai.observer.observer.Observer"><span class="pre">Observer</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">role</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="racoon_ai.strategy.role.html#racoon_ai.strategy.role.role.Role" title="racoon_ai.strategy.role.role.Role"><span class="pre">Role</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.Main" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">QMainWindow</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Main.active">
+<span class="sig-name descname"><span class="pre">active</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#racoon_ai.gui.modules.background.Back.None" title="racoon_ai.gui.modules.background.Back.None"><span class="pre">None</span></a></span></span><a class="headerlink" href="#racoon_ai.gui.modules.Main.active" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Main.paintEvent">
+<span class="sig-name descname"><span class="pre">paintEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QPaintEvent</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#racoon_ai.gui.modules.background.Back.None" title="racoon_ai.gui.modules.background.Back.None"><span class="pre">None</span></a></span></span><a class="headerlink" href="#racoon_ai.gui.modules.Main.paintEvent" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Main.staticMetaObject">
+<span class="sig-name descname"><span class="pre">staticMetaObject</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">PySide6.QtCore.QMetaObject(&quot;Main&quot;</span> <span class="pre">inherits</span> <span class="pre">&quot;QMainWindow&quot;:</span> <span class="pre">)</span></em><a class="headerlink" href="#racoon_ai.gui.modules.Main.staticMetaObject" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Robot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.</span></span><span class="sig-name descname"><span class="pre">Robot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#racoon_ai.gui.modules.main.Main" title="racoon_ai.gui.modules.main.Main"><span class="pre">Main</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.Robot" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> -- </p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Robot.None">
+<span class="sig-name descname"><span class="pre">None</span></span><a class="headerlink" href="#racoon_ai.gui.modules.Robot.None" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Vision">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racoon_ai.gui.modules.</span></span><span class="sig-name descname"><span class="pre">Vision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#racoon_ai.gui.modules.main.Main" title="racoon_ai.gui.modules.main.Main"><span class="pre">Main</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#racoon_ai.gui.modules.Vision" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> -- </p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racoon_ai.gui.modules.Vision.None">
+<span class="sig-name descname"><span class="pre">None</span></span><a class="headerlink" href="#racoon_ai.gui.modules.Vision.None" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">racoon_ai.gui.modules package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-racoon_ai.gui.modules.animated_toggle">racoon_ai.gui.modules.animated_toggle module</a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle"><code class="docutils literal notranslate"><span class="pre">AnimatedToggle</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.handle_position"><code class="docutils literal notranslate"><span class="pre">AnimatedToggle.handle_position</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.hitButton"><code class="docutils literal notranslate"><span class="pre">AnimatedToggle.hitButton()</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.paintEvent"><code class="docutils literal notranslate"><span class="pre">AnimatedToggle.paintEvent()</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.pulse_radius"><code class="docutils literal notranslate"><span class="pre">AnimatedToggle.pulse_radius</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.setup_animation"><code class="docutils literal notranslate"><span class="pre">AnimatedToggle.setup_animation()</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.sizeHint"><code class="docutils literal notranslate"><span class="pre">AnimatedToggle.sizeHint()</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.animated_toggle.AnimatedToggle.staticMetaObject"><code class="docutils literal notranslate"><span class="pre">AnimatedToggle.staticMetaObject</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-racoon_ai.gui.modules.background">racoon_ai.gui.modules.background module</a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.background.Back"><code class="docutils literal notranslate"><span class="pre">Back</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.background.Back.None"><code class="docutils literal notranslate"><span class="pre">Back.None</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-racoon_ai.gui.modules.chart">racoon_ai.gui.modules.chart module</a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.chart.Chart"><code class="docutils literal notranslate"><span class="pre">Chart</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.chart.Chart.None"><code class="docutils literal notranslate"><span class="pre">Chart.None</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.chart.Chart.update_plot_data"><code class="docutils literal notranslate"><span class="pre">Chart.update_plot_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-racoon_ai.gui.modules.game_control">racoon_ai.gui.modules.game_control module</a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.game_control.Game"><code class="docutils literal notranslate"><span class="pre">Game</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.game_control.Game.None"><code class="docutils literal notranslate"><span class="pre">Game.None</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.game_control.Game.update_command"><code class="docutils literal notranslate"><span class="pre">Game.update_command()</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.game_control.Game.update_placement"><code class="docutils literal notranslate"><span class="pre">Game.update_placement()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-racoon_ai.gui.modules.main">racoon_ai.gui.modules.main module</a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.main.Main"><code class="docutils literal notranslate"><span class="pre">Main</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.main.Main.active"><code class="docutils literal notranslate"><span class="pre">Main.active()</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.main.Main.paintEvent"><code class="docutils literal notranslate"><span class="pre">Main.paintEvent()</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.main.Main.staticMetaObject"><code class="docutils literal notranslate"><span class="pre">Main.staticMetaObject</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-racoon_ai.gui.modules.robot">racoon_ai.gui.modules.robot module</a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.robot.Robot"><code class="docutils literal notranslate"><span class="pre">Robot</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.robot.Robot.None"><code class="docutils literal notranslate"><span class="pre">Robot.None</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-racoon_ai.gui.modules.vision">racoon_ai.gui.modules.vision module</a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.vision.Vision"><code class="docutils literal notranslate"><span class="pre">Vision</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.vision.Vision.None"><code class="docutils literal notranslate"><span class="pre">Vision.None</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-racoon_ai.gui.modules">Module contents</a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Back"><code class="docutils literal notranslate"><span class="pre">Back</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Back.None"><code class="docutils literal notranslate"><span class="pre">Back.None</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Chart"><code class="docutils literal notranslate"><span class="pre">Chart</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Chart.None"><code class="docutils literal notranslate"><span class="pre">Chart.None</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Chart.update_plot_data"><code class="docutils literal notranslate"><span class="pre">Chart.update_plot_data()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Game"><code class="docutils literal notranslate"><span class="pre">Game</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Game.None"><code class="docutils literal notranslate"><span class="pre">Game.None</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Game.update_command"><code class="docutils literal notranslate"><span class="pre">Game.update_command()</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Game.update_placement"><code class="docutils literal notranslate"><span class="pre">Game.update_placement()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Main"><code class="docutils literal notranslate"><span class="pre">Main</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Main.active"><code class="docutils literal notranslate"><span class="pre">Main.active()</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Main.paintEvent"><code class="docutils literal notranslate"><span class="pre">Main.paintEvent()</span></code></a></li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Main.staticMetaObject"><code class="docutils literal notranslate"><span class="pre">Main.staticMetaObject</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Robot"><code class="docutils literal notranslate"><span class="pre">Robot</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Robot.None"><code class="docutils literal notranslate"><span class="pre">Robot.None</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Vision"><code class="docutils literal notranslate"><span class="pre">Vision</span></code></a><ul>
+<li><a class="reference internal" href="#racoon_ai.gui.modules.Vision.None"><code class="docutils literal notranslate"><span class="pre">Vision.None</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+            </div>
+
+            <div class="right">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Ri-one.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
